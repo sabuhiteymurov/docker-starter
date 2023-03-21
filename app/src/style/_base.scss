@@ -1,0 +1,85 @@
+// COLORS
+$color-primary: #6354f0;
+$color-primary-darker: #594cd8;
+$color-primary-darker-2: #4f43c0;
+$color-primary-lighter: #7365f2;
+$color-primary-lighter-2: #8276f3;
+$color-secondary: #1cb5b9;
+$color-secondary-darker: #19a3a7;
+$color-secondary-darker-2: #169194;
+$color-secondary-darker-3: #147f82;
+$color-secondary-lighter: #33bcc0;
+$color-secondary-lighter-2: #49c4c7;
+$color-secondary-lighter-3: #60cbce;
+$color-tertiary: #1e1f44;
+$color-tertiary-lighter: #353557;
+$color-text: #617d98;
+$color-secondary-opacity: #e8f8f8;
+$color-secondary-opacity-2: #d2f0f1;
+// $gradient-primary: linear-gradient(to top left, #39b385, #9be15d);
+$color-black: #000;
+$color-white: #fff;
+$color-gray: #f1f5f8;
+
+$radius: 0.4rem;
+$spacing: 0.25rem;
+
+$transition: all 0.3s linear;
+$transformRight: translateX(90%);
+$transformLeft: translateX(0);
+
+// SHADOWS
+$light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+$dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+
+  @include respond(mini-laptop) {
+    font-size: 56.25%;
+  }
+
+  @include respond(med-tab) {
+    font-size: 45%;
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%;
+  }
+}
+
+body {
+  font-family: 'Nunito Sans', sans-serif !important;
+  line-height: 1;
+  font-weight: 400;
+  color: $color-tertiary;
+  overflow-x: hidden;
+}
+
+// CUSTOM SCROLLBAR
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+  background: $color-secondary-opacity;
+  border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-secondary;
+  border: 0.25rem solid $color-secondary;
+  border-radius: 100vw;
+  transition: all 0.2s;
+
+  &:hover {
+    background: $color-secondary-lighter-2;
+    border: 0.25rem solid $color-secondary-lighter-2;
+  }
+}

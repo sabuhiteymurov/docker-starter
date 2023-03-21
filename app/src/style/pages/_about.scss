@@ -1,0 +1,311 @@
+.about {
+  background-color: $color-gray;
+  padding-bottom: 8rem;
+  padding-top: 8rem;
+  &-center {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    @include respond(big-tab) {
+      justify-content: space-evenly;
+      gap: 0;
+    }
+    @include respond(tab) {
+      padding-top: 2rem !important;
+      padding: 0 2rem;
+    }
+    @include respond(med-phone) {
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: 8rem;
+      justify-items: center;
+    }
+  }
+
+  &-il {
+    width: 45rem;
+    @include respond(big-tab) {
+      width: 40rem;
+    }
+    @include respond(tab) {
+      width: 35rem;
+    }
+    @include respond(phone) {
+      width: 30rem;
+    }
+    @include respond(med-phone) {
+      grid-row: 1;
+      width: 25rem;
+    }
+  }
+}
+
+.about-info {
+  padding: 5rem 3.2rem 3.2rem 3.2rem;
+  background-color: $color-secondary-opacity-2;
+  position: relative;
+  border-radius: $radius;
+  @include respond(big-tab) {
+    width: 60rem;
+    padding: 5rem 2.4rem 2.4rem 2.4rem;
+  }
+  @include respond(tab) {
+    width: 45rem;
+  }
+  @include respond(phone) {
+    padding: 4rem 2rem 2rem 2rem;
+  }
+  @include respond(med-phone) {
+    grid-row: 2;
+  }
+  @include respond(mini-phone) {
+    width: 40rem;
+  }
+  p {
+    font-size: 2rem;
+    color: $color-tertiary;
+    letter-spacing: 0.8px;
+    line-height: 1.6;
+    @include respond(med-tab) {
+      font-size: 1.8rem;
+    }
+    @include respond(med-tab) {
+      font-size: 1.6rem;
+    }
+    @include respond(phone) {
+      font-size: 1.4rem;
+    }
+  }
+  &__btn {
+    padding: 1.5rem 2rem;
+    position: absolute;
+    background-color: $color-secondary-lighter;
+    color: $color-white;
+    font-size: 2.6rem;
+    width: 16rem;
+    font-weight: 600;
+    border-radius: $radius;
+    transition: color 0.2s;
+    @include respond(med-tab) {
+      font-size: 2rem;
+    }
+    @include respond(tab) {
+      width: 12rem;
+    }
+    @include respond(phone) {
+      width: 10rem;
+      font-size: 1.6rem;
+    }
+
+    &:hover {
+      animation: hovering 1s ease-in-out infinite !important;
+    }
+  }
+  .btn--left {
+    top: -3.5rem;
+    left: 11rem;
+    @include respond(big-tab) {
+      left: 9rem;
+    }
+    @include respond(tab) {
+      left: 6rem;
+    }
+  }
+  .btn--right {
+    top: -3.5rem;
+    right: 11rem;
+    @include respond(big-tab) {
+      right: 9rem;
+    }
+    @include respond(tab) {
+      right: 6rem;
+    }
+  }
+}
+
+.btn__active {
+  background-color: $color-secondary-darker-2;
+  transform: translateY(-10px);
+}
+
+@keyframes hovering {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+// SKILLS
+.skills-section {
+  padding-bottom: 12.6rem;
+  background-color: $color-gray;
+}
+
+.skills-container {
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+.skills {
+  column-gap: 3.2rem;
+  row-gap: 3.2rem;
+  @include respond(big-tab) {
+    column-gap: 2.4rem;
+    row-gap: 2.4rem;
+    padding: 0 2rem;
+  }
+  @include respond(tab) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include respond(med-phone) {
+    grid-template-columns: 1fr;
+  }
+  .skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $color-secondary-darker-2;
+    padding: 3.2rem 3.2rem 2.4rem;
+    border-radius: $radius;
+    box-shadow: 0 1.6rem 3.2rem rgba(0, 0, 0, 0.15);
+    transition: all 300ms ease-in-out 0ms;
+
+    &:hover {
+      transform: translateY(-1rem) scale(1.01);
+    }
+
+    &:hover > .skill-progress::after {
+      animation: barhover 1s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    }
+
+    &-icon {
+      height: 10rem;
+    }
+    &-title {
+      font-size: 2.6rem;
+      color: $color-white;
+      font-weight: 700;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    &-progress {
+      width: 100%;
+      height: 4.8rem;
+      background-color: hsla(0, 0%, 100%, 0.2);
+      border-radius: 150px;
+      position: relative;
+      margin: 2.5rem auto auto;
+      overflow: hidden;
+      text-align: center;
+      &::after {
+        text-align: center;
+        padding: 0.96rem 0;
+        font-size: 2.4rem;
+        color: $color-white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 101%;
+        border-radius: 150px;
+        backface-visibility: hidden;
+      }
+    }
+
+    .progress-html {
+      &::after {
+        content: '90%';
+        width: 90%;
+        background-color: #e44d26;
+      }
+    }
+    .progress-css {
+      &::after {
+        content: '80%';
+        width: 80%;
+        background-color: #0170ba;
+      }
+    }
+    .progress-js {
+      &::after {
+        content: '90%';
+        width: 90%;
+        background-color: #e6c61d;
+      }
+    }
+    .progress-react {
+      &::after {
+        content: '80%';
+        width: 80%;
+        background-color: #61dafb;
+      }
+    }
+    .progress-nextjs {
+      &::after {
+        content: '70%';
+        width: 70%;
+        background-color: #111111;
+      }
+    }
+    .progress-sass {
+      &::after {
+        content: '80%';
+        width: 80%;
+        background-color: #ce679a;
+      }
+    }
+    .progress-typescript {
+      &::after {
+        content: '70%';
+        width: 70%;
+        background-color: #0170ba;
+      }
+    }
+    .progress-redux {
+      &::after {
+        content: '70%';
+        width: 70%;
+        background-color: #7e57c2;
+      }
+    }
+    .progress-git {
+      &::after {
+        content: '70%';
+        width: 70%;
+        background-color: #e44d26;
+      }
+    }
+    .progress-figma {
+      &::after {
+        content: '50%';
+        width: 50%;
+        background-color: #0ac97f;
+      }
+    }
+    .progress-python {
+      &::after {
+        content: '60%';
+        width: 60%;
+        background-color: #f1bf35;
+      }
+    }
+  }
+}
+
+@keyframes barhover {
+  50% {
+    transform: translateX(90%);
+  }
+  // 50% {
+  //   transform: translateX(50%);
+  // }
+  100% {
+    transform: translateX(0);
+  }
+}

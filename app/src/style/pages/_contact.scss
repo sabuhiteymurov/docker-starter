@@ -1,0 +1,100 @@
+.contact {
+  background-color: $color-gray;
+
+  .section-content {
+    display: flex;
+    align-items: center;
+    gap: 20rem;
+    justify-content: center;
+    @include respond(big-tab) {
+      justify-content: space-evenly;
+      gap: 10rem;
+    }
+    @include respond(med-tab) {
+      gap: 0;
+    }
+    @include respond(tab) {
+      justify-content: center;
+      gap: 2rem;
+    }
+    @include respond(phone) {
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-items: center;
+      gap: 3.6rem;
+    }
+  }
+
+  &-form {
+    background-color: $color-white;
+    border-radius: $radius;
+    text-align: center;
+    box-shadow: $light-shadow;
+    transition: $transition;
+    width: 70vw;
+    max-width: 50rem;
+    @include respond(tab) {
+      max-width: 40rem;
+    }
+    @include respond(phone) {
+      grid-row: 2;
+      max-width: 45rem;
+    }
+    @include respond(med-phone) {
+      max-block-width: 45rem;
+    }
+    @include respond(mini-phone) {
+      width: 80vw;
+    }
+    &-content {
+      display: flex;
+      flex-direction: column;
+      padding: 2.4rem;
+      padding-bottom: 0;
+      width: 100%;
+
+      .form-control {
+        display: block;
+        width: 100%;
+        padding: 1.2rem 1.6rem;
+        border: none;
+        margin-bottom: 2rem;
+        background: $color-gray;
+        border-radius: $radius;
+        letter-spacing: 1.5px;
+        @include respond(tab) {
+          font-size: 1.5rem;
+        }
+      }
+    }
+    &-btn {
+      width: 100%;
+      padding: 1.4rem 0;
+      border-bottom-left-radius: $radius;
+      border-bottom-right-radius: $radius;
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+      background-color: $color-secondary;
+      color: #fff;
+      font-size: 1.8rem;
+      letter-spacing: 1.5px;
+    }
+  }
+
+  &-il {
+    height: 45rem;
+    width: 45rem;
+    @include respond(tab) {
+      width: 38rem;
+      height: 38rem;
+    }
+    @include respond(phone) {
+      grid-row: 1;
+    }
+  }
+}
+
+// Dynamic form input error
+.btn-error {
+  border: 2px solid #bb2525 !important;
+}

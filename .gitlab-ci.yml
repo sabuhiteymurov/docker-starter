@@ -1,0 +1,32 @@
+image:
+  name: docker:cli
+
+default:
+  tags:
+    - linux
+    - vm
+    - rocky
+
+stages:
+  # - builder-image
+  # - build
+  - test
+
+# docker-build:
+#   stage: build  
+#   before_script:
+#     - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" $CI_REGISTRY --password-stdin
+#   script:
+#     - docker build -t $CI_REGISTRY/$GROUP/$PROJECT/$IMAGE:$TAG .
+#     - docker push $CI_REGISTRY/$GROUP/$PROJECT/$IMAGE:$TAG
+
+image-test:
+  stage: test
+  before_script:
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" $CI_REGISTRY --password-stdin
+  script:
+    - docker pull $CI_REGISTRY/$GROUP/$PROJECT/$IMAGE:$TAG
+    - docker run -t -d $CI_REGISTRY/$GROUP/$PROJECT/$IMAGE:$TAG
+    # - docker exec test /bin/sh
+
+

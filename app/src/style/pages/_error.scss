@@ -1,0 +1,12 @@
+.error {
+  padding: 17.1rem 0;
+  background-color: $color-secondary-opacity-2;
+  text-align: center;
+  .error-heading {
+    margin-bottom: 1rem;
+    @include respond(tab) {
+      font-size: 3rem;
+      margin-bottom: 0;
+    }
+  }
+}

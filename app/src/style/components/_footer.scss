@@ -1,0 +1,47 @@
+.footer {
+  height: 20rem;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+  background: #333;
+  text-align: center;
+  display: grid;
+  place-items: center;
+
+  &-links {
+    margin: 0 auto 1rem;
+    padding-bottom: 1.5rem;
+    justify-content: center;
+    .social-link {
+      color: white;
+    }
+  }
+
+  &-heading {
+    margin-top: 0.8rem;
+    color: $color-white;
+    font-weight: 500;
+    font-size: 1.8rem;
+    letter-spacing: 1.5px;
+    @include respond(med-phone) {
+      font-size: 1.5rem;
+    }
+
+    a {
+      cursor: pointer;
+      text-decoration: none;
+      color: $color-secondary-lighter-2;
+
+      &:link,
+      &:focus {
+        text-decoration: none;
+        color: $color-secondary-lighter-2;
+      }
+
+      &:hover,
+      &:active {
+        color: $color-secondary;
+        text-decoration: none;
+      }
+    }
+  }
+}
